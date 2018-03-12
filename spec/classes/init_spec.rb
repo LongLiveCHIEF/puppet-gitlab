@@ -226,7 +226,7 @@ describe 'gitlab', type: :class do
           end
           it {
             is_expected.to contain_file('/etc/gitlab/gitlab.rb')
-            .with_content(%w[redis_sentinel_role redis_master_role])
+            .with_content(%r{^\s*roles \["redis_sentinel_role", "redis_master_role"\]})
           }
         end
         describe 'with data_dirs' do
